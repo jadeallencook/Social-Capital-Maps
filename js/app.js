@@ -36,11 +36,6 @@
 
     function highlightFeature(e) {
         var layer = e.target;
-        layer.setStyle({
-            color: '#666',
-            dashArray: '',
-            fillOpacity: 0.7
-        });
         if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
             layer.bringToFront();
         }
@@ -55,7 +50,8 @@
     function onEachFeature(feature, layer) {
         layer.on({
             mouseover: highlightFeature,
-            mouseout: resetHighlight
+            mouseout: resetHighlight,
+            click: highlightFeature
         });
     }
 
